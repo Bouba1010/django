@@ -1,0 +1,18 @@
+{% include 'navbar.html' %}
+
+{% block contenu %}
+<h2> Bienvenue sur le site</h2>
+<div>
+    <a href= '{% url 'create' %}'>New Room</a>
+    <div>
+        {% for salon in salons%}
+        <div>   
+            <span>{{salon.author.username}}</span>
+            <h5>{{salon.id}}-<a href="room/{{salon.id}}"> {{salon.name}}</a></h5>
+            <small> {{salon.topic.name}}</small>
+        </div>
+        <hr/>
+        {% endfor %}
+    </div>
+</div>
+{% endblock contenu %}
